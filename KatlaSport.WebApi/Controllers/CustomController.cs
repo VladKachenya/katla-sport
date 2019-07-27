@@ -16,8 +16,9 @@ namespace KatlaSport.WebApi.Controllers
     {
         [HttpGet]
         [Route("")]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a test string.", Type = typeof(string))]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public IHttpActionResult GetHives()
+        public IHttpActionResult GetCustoms()
         {
             return Ok("Hello world!");
         }
