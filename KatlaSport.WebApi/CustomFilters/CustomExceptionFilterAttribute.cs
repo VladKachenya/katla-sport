@@ -11,6 +11,7 @@ namespace KatlaSport.WebApi.CustomFilters
         public override void OnException(HttpActionExecutedContext context)
         {
             // TODO Add logging here.
+            Console.WriteLine(context.Exception.Message);
             if (context.Exception is RequestedResourceNotFoundException)
             {
                 context.Response = new HttpResponseMessage(HttpStatusCode.NotFound);
