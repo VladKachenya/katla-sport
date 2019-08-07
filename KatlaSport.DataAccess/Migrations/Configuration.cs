@@ -2,6 +2,7 @@
 using System.Data.Entity.Migrations;
 using System.Diagnostics;
 using KatlaSport.DataAccess.CustomerCatalogue;
+using KatlaSport.DataAccess.EmployeeCatalogue;
 using KatlaSport.DataAccess.ProductCatalogue;
 using KatlaSport.DataAccess.ProductStore;
 using KatlaSport.DataAccess.ProductStoreHive;
@@ -18,6 +19,7 @@ namespace KatlaSport.DataAccess.Migrations
         drop table dbo.product_hive_sections
         drop table dbo.product_hives
         drop table dbo.customer_records
+        drop table dbo.employee_records
         drop table dbo.__MigrationHistory
 
         select * from dbo.catalogue_products
@@ -119,6 +121,17 @@ namespace KatlaSport.DataAccess.Migrations
                     Id = 4,
                     Name = "Pedali 360 Bicycle",
                     Code = "PBYC1",
+                    CategoryId = 3,
+                    IsDeleted = false,
+                    CreatedBy = creatorId,
+                    LastUpdatedBy = creatorId,
+                    LastUpdated = timestamp
+                },
+                new CatalogueProduct
+                {
+                    Id = 5,
+                    Name = "Pedali 120",
+                    Code = "PBYC2",
                     CategoryId = 3,
                     IsDeleted = false,
                     CreatedBy = creatorId,
@@ -395,6 +408,107 @@ namespace KatlaSport.DataAccess.Migrations
                     Name = "Alexander Alexandrov",
                     Address = "Brest, Repina-7",
                     Phone = "+37529-9832872"
+                });
+
+            context.Positions.AddOrUpdate(
+                i => i.Id,
+                new EmployeePosition // #1
+                {
+                    Id = 1,
+                    Name = "Head of company"
+                },
+                new EmployeePosition // #2
+                {
+                    Id = 2,
+                    Name = "Head of sales"
+                },
+                new EmployeePosition // #3
+                {
+                    Id = 3,
+                    Name = "Head of hives"
+                },
+                new EmployeePosition // #4
+                {
+                    Id = 4,
+                    Name = "Head of product"
+                },
+                new EmployeePosition // #5
+                {
+                    Id = 5,
+                    Name = "Loader"
+                });
+
+            context.Employees.AddOrUpdate(
+                i => i.Id,
+                new Employee // #1
+                {
+                    Id = 1,
+                    FirstName = "Arkady",
+                    LastName = "Tropkin",
+                    EmployeePositionId = 1,
+                    Email = "Tropkin@email.com",
+                    BossId = 0,
+                    EmployeePlaceId = 0
+                },
+                new Employee // #2
+                {
+                    Id = 2,
+                    FirstName = "Sergey",
+                    LastName = "Pobegimov",
+                    EmployeePositionId = 2,
+                    Email = "Pobegimov@email.com",
+                    BossId = 1,
+                    EmployeePlaceId = 0
+                },
+                new Employee // #3
+                {
+                    Id = 3,
+                    FirstName = "Gennady",
+                    LastName = "Tsvetkov",
+                    EmployeePositionId = 3,
+                    Email = "Tsvetkov@email.com",
+                    BossId = 1,
+                    EmployeePlaceId = 0
+                },
+                new Employee // #4
+                {
+                    Id = 4,
+                    FirstName = "Arthur",
+                    LastName = "Pies",
+                    EmployeePositionId = 4,
+                    Email = "Pies@email.com",
+                    BossId = 1,
+                    EmployeePlaceId = 0
+                },
+                new Employee // #5
+                {
+                    Id = 5,
+                    FirstName = "Sergey",
+                    LastName = "Petrovich",
+                    EmployeePositionId = 5,
+                    Email = "Petrovich@email.com",
+                    BossId = 3,
+                    EmployeePlaceId = 0
+                },
+                new Employee // #6
+                {
+                    Id = 6,
+                    FirstName = "Sergey",
+                    LastName = "Stepanyuk",
+                    EmployeePositionId = 5,
+                    Email = "Petrovich@email.com",
+                    BossId = 3,
+                    EmployeePlaceId = 0
+                },
+                new Employee // #7
+                {
+                    Id = 7,
+                    FirstName = "Sergey",
+                    LastName = "Ulyukayev",
+                    EmployeePositionId = 5,
+                    Email = "Ulyukayev@email.com",
+                    BossId = 3,
+                    EmployeePlaceId = 0
                 });
         }
     }
