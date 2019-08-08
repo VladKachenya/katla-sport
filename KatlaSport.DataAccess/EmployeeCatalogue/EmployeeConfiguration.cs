@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace KatlaSport.DataAccess.EmployeeCatalogue
 {
-    public class EmployeeConfiguration : EntityTypeConfiguration<Employee>
+    public class EmployeeConfiguration : EntityTypeConfiguration<StoreEmployee>
     {
         public EmployeeConfiguration()
         {

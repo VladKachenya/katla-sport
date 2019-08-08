@@ -3,9 +3,9 @@
 namespace KatlaSport.DataAccess.EmployeeCatalogue
 {
     /// <summary>
-    /// Represents an employee.
+    /// Represents a store employee.
     /// </summary>
-    public class Employee
+    public class StoreEmployee
     {
         /// <summary>
         /// Gets or sets an employee ID.
@@ -23,7 +23,7 @@ namespace KatlaSport.DataAccess.EmployeeCatalogue
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or sets an employee last email.
+        /// Gets or sets an employee email.
         /// </summary>
         public string Email { get; set; }
 
@@ -60,11 +60,11 @@ namespace KatlaSport.DataAccess.EmployeeCatalogue
         /// <summary>
         /// Gets or sets a boss.
         /// </summary>
-        public virtual Employee Boss { get; set; }
+        public virtual StoreEmployee Boss { get; set; }
 
         /// <summary>
         /// Gets or sets subordinate employees.
         /// </summary>
-        public virtual ICollection<Employee> SubordinateEmployees { get; set; }
+        public virtual ICollection<StoreEmployee> SubordinateEmployees { get; set; }
     }
 }

@@ -6,9 +6,9 @@
     public interface IEmployeeCatalogueContext : IAsyncEntityStorage
     {
         /// <summary>
-        /// Gets a set of <see cref="Employee"/> entities.
+        /// Gets a set of <see cref="StoreEmployee"/> entities.
         /// </summary>
-        IEntitySet<Employee> Employees { get; }
+        IEntitySet<StoreEmployee> Employees { get; }
 
         /// <summary>
         /// Gets a set of <see cref="EmployeePlace"/> entities.

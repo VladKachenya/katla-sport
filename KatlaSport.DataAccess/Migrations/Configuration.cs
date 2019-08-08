@@ -440,7 +440,7 @@ namespace KatlaSport.DataAccess.Migrations
 
             context.Employees.AddOrUpdate(
                 i => i.Id,
-                new Employee // #1
+                new StoreEmployee // #1
                 {
                     Id = 1,
                     FirstName = "Arkady",
@@ -448,7 +448,7 @@ namespace KatlaSport.DataAccess.Migrations
                     EmployeePositionId = 1,
                     Email = "Tropkin@email.com"
                 },
-                new Employee // #2
+                new StoreEmployee // #2
                 {
                     Id = 2,
                     FirstName = "Sergey",
@@ -457,7 +457,7 @@ namespace KatlaSport.DataAccess.Migrations
                     Email = "Pobegimov@email.com",
                     BossId = 1
                 },
-                new Employee // #3
+                new StoreEmployee // #3
                 {
                     Id = 3,
                     FirstName = "Gennady",
@@ -466,7 +466,7 @@ namespace KatlaSport.DataAccess.Migrations
                     Email = "Tsvetkov@email.com",
                     BossId = 1
                 },
-                new Employee // #4
+                new StoreEmployee // #4
                 {
                     Id = 4,
                     FirstName = "Arthur",
@@ -475,7 +475,7 @@ namespace KatlaSport.DataAccess.Migrations
                     Email = "Pies@email.com",
                     BossId = 1
                 },
-                new Employee // #5
+                new StoreEmployee // #5
                 {
                     Id = 5,
                     FirstName = "Sergey",
@@ -484,7 +484,7 @@ namespace KatlaSport.DataAccess.Migrations
                     Email = "Petrovich@email.com",
                     BossId = 3
                 },
-                new Employee // #6
+                new StoreEmployee // #6
                 {
                     Id = 6,
                     FirstName = "Sergey",
@@ -493,7 +493,7 @@ namespace KatlaSport.DataAccess.Migrations
                     Email = "Petrovich@email.com",
                     BossId = 3
                 },
-                new Employee // #7
+                new StoreEmployee // #7
                 {
                     Id = 7,
                     FirstName = "Sergey",

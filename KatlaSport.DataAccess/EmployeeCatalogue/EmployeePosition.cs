@@ -22,6 +22,6 @@ namespace KatlaSport.DataAccess.EmployeeCatalogue
         /// <summary>
         /// Gets or sets an employee assigned to this position.
         /// </summary>
-        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<StoreEmployee> Employees { get; set; }
     }
 }

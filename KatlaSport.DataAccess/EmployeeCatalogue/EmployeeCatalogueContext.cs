@@ -7,7 +7,7 @@
         {
         }
 
-        public IEntitySet<Employee> Employees => GetDbSet<Employee>();
+        public IEntitySet<StoreEmployee> Employees => GetDbSet<StoreEmployee>();
 
         public IEntitySet<EmployeePlace> Places => GetDbSet<EmployeePlace>();
 
