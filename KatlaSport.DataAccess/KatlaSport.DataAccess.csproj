@@ -73,9 +73,9 @@
     <Compile Include="Migrations\201908011923305_AddProductDescriptionManCodePrice.Designer.cs">
       <DependentUpon>201908011923305_AddProductDescriptionManCodePrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908071826312_EmployeeCatalogue.cs" />
-    <Compile Include="Migrations\201908071826312_EmployeeCatalogue.Designer.cs">
-      <DependentUpon>201908071826312_EmployeeCatalogue.cs</DependentUpon>
+    <Compile Include="Migrations\201908080609414_AddEmployeeCatalogue.cs" />
+    <Compile Include="Migrations\201908080609414_AddEmployeeCatalogue.Designer.cs">
+      <DependentUpon>201908080609414_AddEmployeeCatalogue.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
   </ItemGroup>
@@ -96,8 +96,8 @@
     <EmbeddedResource Include="Migrations\201908011923305_AddProductDescriptionManCodePrice.resx">
       <DependentUpon>201908011923305_AddProductDescriptionManCodePrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908071826312_EmployeeCatalogue.resx">
-      <DependentUpon>201908071826312_EmployeeCatalogue.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908080609414_AddEmployeeCatalogue.resx">
+      <DependentUpon>201908080609414_AddEmployeeCatalogue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

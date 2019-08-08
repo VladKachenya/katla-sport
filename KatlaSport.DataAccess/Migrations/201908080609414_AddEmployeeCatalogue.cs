@@ -3,9 +3,9 @@ namespace KatlaSport.DataAccess.Migrations
     using System.Data.Entity.Migrations;
 
     /// <summary>
-    /// Add employee_records, employee_work_places and employee_position tables
+    /// Add employee_records, employee_work_places and employee_position tables.
     /// </summary>
-    public partial class EmployeeCatalogue : DbMigration
+    public partial class AddEmployeeCatalogue : DbMigration
     {
         public override void Up()
         {
@@ -18,13 +18,13 @@ namespace KatlaSport.DataAccess.Migrations
                     employee_last_name = c.String(nullable: false, maxLength: 60),
                     employee_email = c.String(nullable: false, maxLength: 60),
                     employee_photo_url = c.String(),
-                    employee_place_id = c.Int(nullable: false),
+                    employee_place_id = c.Int(),
                     employee_position_id = c.Int(nullable: false),
-                    employee_boss_id = c.Int(nullable: false),
+                    employee_boss_id = c.Int(),
                 })
                 .PrimaryKey(t => t.employee_id)
                 .ForeignKey("dbo.employee_records", t => t.employee_boss_id)
-                .ForeignKey("dbo.employee_work_places", t => t.employee_place_id, cascadeDelete: true)
+                .ForeignKey("dbo.employee_work_places", t => t.employee_place_id)
                 .ForeignKey("dbo.employee_position", t => t.employee_position_id, cascadeDelete: true)
                 .Index(t => t.employee_place_id)
                 .Index(t => t.employee_position_id)

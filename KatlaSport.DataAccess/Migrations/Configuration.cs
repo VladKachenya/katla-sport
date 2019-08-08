@@ -446,9 +446,7 @@ namespace KatlaSport.DataAccess.Migrations
                     FirstName = "Arkady",
                     LastName = "Tropkin",
                     EmployeePositionId = 1,
-                    Email = "Tropkin@email.com",
-                    BossId = 0,
-                    EmployeePlaceId = 0
+                    Email = "Tropkin@email.com"
                 },
                 new Employee // #2
                 {
@@ -457,8 +455,7 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Pobegimov",
                     EmployeePositionId = 2,
                     Email = "Pobegimov@email.com",
-                    BossId = 1,
-                    EmployeePlaceId = 0
+                    BossId = 1
                 },
                 new Employee // #3
                 {
@@ -467,8 +464,7 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Tsvetkov",
                     EmployeePositionId = 3,
                     Email = "Tsvetkov@email.com",
-                    BossId = 1,
-                    EmployeePlaceId = 0
+                    BossId = 1
                 },
                 new Employee // #4
                 {
@@ -477,8 +473,7 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Pies",
                     EmployeePositionId = 4,
                     Email = "Pies@email.com",
-                    BossId = 1,
-                    EmployeePlaceId = 0
+                    BossId = 1
                 },
                 new Employee // #5
                 {
@@ -487,8 +482,7 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Petrovich",
                     EmployeePositionId = 5,
                     Email = "Petrovich@email.com",
-                    BossId = 3,
-                    EmployeePlaceId = 0
+                    BossId = 3
                 },
                 new Employee // #6
                 {
@@ -497,8 +491,7 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Stepanyuk",
                     EmployeePositionId = 5,
                     Email = "Petrovich@email.com",
-                    BossId = 3,
-                    EmployeePlaceId = 0
+                    BossId = 3
                 },
                 new Employee // #7
                 {
@@ -507,8 +500,7 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Ulyukayev",
                     EmployeePositionId = 5,
                     Email = "Ulyukayev@email.com",
-                    BossId = 3,
-                    EmployeePlaceId = 0
+                    BossId = 3
                 });
         }
     }
