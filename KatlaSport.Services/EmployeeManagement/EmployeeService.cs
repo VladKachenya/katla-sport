@@ -39,9 +39,15 @@ namespace KatlaSport.Services.EmployeeManagement
         }
 
         /// <inheritdoc/>
-        public Task<Employee> GetEmployeeAsync(int employeeId)
+        public async Task<Employee> GetEmployeeAsync(int employeeId)
         {
-            throw new System.NotImplementedException();
+            var dbEmployees = await _context.Employees.Where(c => c.Id == employeeId).ToArrayAsync();
+            if (dbEmployees.Length == 0)
+            {
+                throw new RequestedResourceNotFoundException();
+            }
+
+            return Mapper.Map<StoreEmployee, Employee>(dbEmployees[0]);
         }
     }
 }

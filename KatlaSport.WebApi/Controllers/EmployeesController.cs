@@ -15,11 +15,11 @@ namespace KatlaSport.WebApi.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [CustomExceptionFilter]
     [SwaggerResponseRemoveDefaults]
-    public class EmployeeController : ApiController
+    public class EmployeesController : ApiController
     {
         private readonly IEmployeeService _employeeService;
 
-        public EmployeeController(IEmployeeService employeeService)
+        public EmployeesController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
         }
@@ -54,6 +54,17 @@ namespace KatlaSport.WebApi.Controllers
                 employees = await _employeeService.GetEmployeesAsync(start, amount);
             }
             return Ok(employees);
+        }
+
+        [HttpGet]
+        [Route("{id:int:min(1)}")]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a product.", Type = typeof(Employee))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> GetProduct([FromUri] int id)
+        {
+            var employee = await _employeeService.GetEmployeeAsync(id);
+            return Ok(employee);
         }
     }
 }
