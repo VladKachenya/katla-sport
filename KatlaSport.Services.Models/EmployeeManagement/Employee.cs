@@ -19,5 +19,10 @@
         /// Gets or sets an employee email.
         /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// Gets or sets a boss ID.
+        /// </summary>
+        public int BossId { get; set; }
     }
 }
