@@ -77,6 +77,10 @@
     <Compile Include="Migrations\201908080609414_AddEmployeeCatalogue.Designer.cs">
       <DependentUpon>201908080609414_AddEmployeeCatalogue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908120832293_AddServicePropertiesForEmployees.cs" />
+    <Compile Include="Migrations\201908120832293_AddServicePropertiesForEmployees.Designer.cs">
+      <DependentUpon>201908120832293_AddServicePropertiesForEmployees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908080609414_AddEmployeeCatalogue.resx">
       <DependentUpon>201908080609414_AddEmployeeCatalogue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908120832293_AddServicePropertiesForEmployees.resx">
+      <DependentUpon>201908120832293_AddServicePropertiesForEmployees.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

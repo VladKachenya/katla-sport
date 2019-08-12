@@ -446,7 +446,11 @@ namespace KatlaSport.DataAccess.Migrations
                     FirstName = "Arkady",
                     LastName = "Tropkin",
                     EmployeePositionId = 1,
-                    Email = "Tropkin@email.com"
+                    Email = "Tropkin@email.com",
+                    IsDeleted = false,
+                    CreatedBy = creatorId,
+                    LastUpdatedBy = creatorId,
+                    LastUpdated = timestamp
                 },
                 new StoreEmployee // #2
                 {
@@ -455,7 +459,11 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Pobegimov",
                     EmployeePositionId = 2,
                     Email = "Pobegimov@email.com",
-                    BossId = 1
+                    BossId = 1,
+                    IsDeleted = false,
+                    CreatedBy = creatorId,
+                    LastUpdatedBy = creatorId,
+                    LastUpdated = timestamp
                 },
                 new StoreEmployee // #3
                 {
@@ -464,7 +472,11 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Tsvetkov",
                     EmployeePositionId = 3,
                     Email = "Tsvetkov@email.com",
-                    BossId = 1
+                    BossId = 1,
+                    IsDeleted = false,
+                    CreatedBy = creatorId,
+                    LastUpdatedBy = creatorId,
+                    LastUpdated = timestamp
                 },
                 new StoreEmployee // #4
                 {
@@ -473,7 +485,11 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Pies",
                     EmployeePositionId = 4,
                     Email = "Pies@email.com",
-                    BossId = 1
+                    BossId = 1,
+                    IsDeleted = false,
+                    CreatedBy = creatorId,
+                    LastUpdatedBy = creatorId,
+                    LastUpdated = timestamp
                 },
                 new StoreEmployee // #5
                 {
@@ -482,7 +498,11 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Petrovich",
                     EmployeePositionId = 5,
                     Email = "Petrovich@email.com",
-                    BossId = 3
+                    BossId = 3,
+                    IsDeleted = false,
+                    CreatedBy = creatorId,
+                    LastUpdatedBy = creatorId,
+                    LastUpdated = timestamp
                 },
                 new StoreEmployee // #6
                 {
@@ -491,7 +511,11 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Stepanyuk",
                     EmployeePositionId = 5,
                     Email = "Petrovich@email.com",
-                    BossId = 3
+                    BossId = 3,
+                    IsDeleted = false,
+                    CreatedBy = creatorId,
+                    LastUpdatedBy = creatorId,
+                    LastUpdated = timestamp
                 },
                 new StoreEmployee // #7
                 {
@@ -500,7 +524,11 @@ namespace KatlaSport.DataAccess.Migrations
                     LastName = "Ulyukayev",
                     EmployeePositionId = 5,
                     Email = "Ulyukayev@email.com",
-                    BossId = 3
+                    BossId = 3,
+                    IsDeleted = false,
+                    CreatedBy = creatorId,
+                    LastUpdatedBy = creatorId,
+                    LastUpdated = timestamp
                 });
         }
     }

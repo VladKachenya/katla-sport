@@ -20,6 +20,11 @@ namespace KatlaSport.DataAccess.EmployeeCatalogue
             Property(i => i.BossId).HasColumnName("employee_boss_id").IsOptional();
             Property(i => i.EmployeePlaceId).HasColumnName("employee_place_id").IsOptional();
             Property(i => i.EmployeePositionId).HasColumnName("employee_position_id").IsRequired();
+            Property(i => i.IsDeleted).HasColumnName("deleted").IsRequired();
+            Property(i => i.CreatedBy).HasColumnName("created_by_id").IsRequired();
+            Property(i => i.Created).HasColumnName("created_utc").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed);
+            Property(i => i.LastUpdatedBy).HasColumnName("updated_by_id").IsRequired();
+            Property(i => i.LastUpdated).HasColumnName("updated_utc").IsRequired();
         }
     }
 }

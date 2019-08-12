@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace KatlaSport.DataAccess.EmployeeCatalogue
 {
@@ -66,5 +67,30 @@ namespace KatlaSport.DataAccess.EmployeeCatalogue
         /// Gets or sets subordinate employees.
         /// </summary>
         public virtual ICollection<StoreEmployee> SubordinateEmployees { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether a employee is deleted.
+        /// </summary>
+        public bool IsDeleted { get; set; }
+
+        /// <summary>
+        /// Gets or sets a creator's identifier.
+        /// </summary>
+        public int CreatedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets a timestamp when the employee was created.
+        /// </summary>
+        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// Gets or sets an updator's identifier.
+        /// </summary>
+        public int LastUpdatedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets a timestamp when the employee was updated last time.
+        /// </summary>
+        public DateTime LastUpdated { get; set; }
     }
 }
