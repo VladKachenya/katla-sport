@@ -436,6 +436,16 @@ namespace KatlaSport.DataAccess.Migrations
                 {
                     Id = 5,
                     Name = "Loader"
+                },
+                new EmployeePosition // #6
+                {
+                    Id = 6,
+                    Name = "IT administrator"
+                },
+                new EmployeePosition // #7
+                {
+                    Id = 7,
+                    Name = "Accounting clerk"
                 });
 
             context.Employees.AddOrUpdate(
@@ -450,7 +460,8 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    EmployeePlaceId = 3
                 },
                 new StoreEmployee // #2
                 {
@@ -463,7 +474,8 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    EmployeePlaceId = 3
                 },
                 new StoreEmployee // #3
                 {
@@ -476,7 +488,8 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    EmployeePlaceId = 3
                 },
                 new StoreEmployee // #4
                 {
@@ -489,7 +502,8 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    EmployeePlaceId = 1
                 },
                 new StoreEmployee // #5
                 {
@@ -502,7 +516,8 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    EmployeePlaceId = 1
                 },
                 new StoreEmployee // #6
                 {
@@ -515,7 +530,8 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    EmployeePlaceId = 1
                 },
                 new StoreEmployee // #7
                 {
@@ -528,7 +544,51 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    EmployeePlaceId = 3
+                });
+
+            context.Places.AddOrUpdate(
+                i => i.Id,
+                new EmployeePlace // #1
+                {
+                    Id = 1,
+                    City = "Minsk",
+                    Country = "Republic of Belarus",
+                    HouseNumber = "25",
+                    Street = "Tukhachevsky's"
+                },
+                new EmployeePlace // #2
+                {
+                    Id = 2,
+                    City = "Minsk",
+                    Country = "Republic of Belarus",
+                    HouseNumber = "1",
+                    Street = "Zykov"
+                },
+                new EmployeePlace // #3
+                {
+                    Id = 3,
+                    City = "Moscow",
+                    Country = "Russian Federation",
+                    HouseNumber = "5",
+                    Street = "Lenin's"
+                },
+                new EmployeePlace // #4
+                {
+                    Id = 4,
+                    City = "Moscow",
+                    Country = "Russian Federation",
+                    HouseNumber = "4",
+                    Street = "Babaevskaya"
+                },
+                new EmployeePlace // #5
+                {
+                    Id = 5,
+                    City = "Kiev",
+                    Country = "Ukraine",
+                    HouseNumber = "14/3",
+                    Street = "Academician Tupolev"
                 });
         }
     }
