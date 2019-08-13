@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Web.Http;
 using System.Web.Http;
@@ -65,6 +66,17 @@ namespace KatlaSport.WebApi.Controllers
         {
             var employee = await _employeeService.GetEmployeeAsync(id);
             return Ok(employee);
+        }
+
+        [HttpPut]
+        [Route("{employeeId:int:min(1)}/status/{deletedStatus:bool}")]
+        [SwaggerResponse(HttpStatusCode.NoContent, Description = "Sets deleted status for an existed employee.")]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> SetStatus([FromUri] int employeeId, [FromUri] bool deletedStatus)
+        {
+            await _employeeService.SetStatusAsync(employeeId, deletedStatus);
+            return ResponseMessage(Request.CreateResponse(HttpStatusCode.NoContent));
         }
     }
 }

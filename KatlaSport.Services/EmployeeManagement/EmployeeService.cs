@@ -12,15 +12,17 @@ namespace KatlaSport.Services.EmployeeManagement
     public class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeCatalogueContext _context;
+        private readonly IUserContext _userContext;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EmployeeService"/> class with specified <see cref="IEmployeeCatalogueContext"/>.
         /// </summary>
         /// <param name="context">A <see cref="IEmployeeCatalogueContext"/>.</param>
         /// <param name="userContext">A <see cref="IUserContext"/>.</param>
-        public EmployeeService(IEmployeeCatalogueContext context)
+        public EmployeeService(IEmployeeCatalogueContext context, IUserContext userContext)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _userContext = userContext ?? throw new ArgumentNullException();
         }
 
         /// <inheritdoc/>
@@ -48,6 +50,26 @@ namespace KatlaSport.Services.EmployeeManagement
             }
 
             return Mapper.Map<StoreEmployee, Employee>(dbEmployees[0]);
+        }
+
+        /// <inheritdoc/>
+        public async Task SetStatusAsync(int employeeId, bool deletedStatus)
+        {
+            var dbEmployees = await _context.Employees.Where(e => e.Id == employeeId).ToArrayAsync();
+
+            if (dbEmployees.Length == 0)
+            {
+                throw new RequestedResourceNotFoundException();
+            }
+
+            var dbEmployee = dbEmployees[0];
+            if (dbEmployee.IsDeleted != deletedStatus)
+            {
+                dbEmployee.IsDeleted = deletedStatus;
+                dbEmployee.LastUpdated = DateTime.Now;
+                dbEmployee.LastUpdatedBy = _userContext.UserId;
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
