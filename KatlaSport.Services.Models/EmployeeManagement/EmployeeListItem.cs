@@ -11,9 +11,14 @@
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or sets an employee full name.
+        /// Gets or sets an employee first name.
         /// </summary>
-        public string FullName { get; set; }
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Gets or sets an employee last name.
+        /// </summary>
+        public string LastName { get; set; }
 
         /// <summary>
         /// Gets or sets an employee position.

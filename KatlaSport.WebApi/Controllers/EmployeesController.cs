@@ -30,7 +30,7 @@ namespace KatlaSport.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a list of employees.", Type = typeof(EmployeeListItem[]))]
         [SwaggerResponse(HttpStatusCode.BadRequest)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> GetProducts([FromUri] int start = 0, [FromUri] int amount = 100, [FromUri] int? bossId = null)
+        public async Task<IHttpActionResult> GetEmployees([FromUri] int start = 0, [FromUri] int amount = 100, [FromUri] int? bossId = null)
         {
             if (start < 0)
             {
@@ -59,13 +59,29 @@ namespace KatlaSport.WebApi.Controllers
 
         [HttpGet]
         [Route("{id:int:min(1)}")]
-        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a product.", Type = typeof(Employee))]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns an employee .", Type = typeof(Employee))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> GetProduct([FromUri] int id)
+        public async Task<IHttpActionResult> GetEmployee([FromUri] int id)
         {
             var employee = await _employeeService.GetEmployeeAsync(id);
             return Ok(employee);
+        }
+
+        [HttpPost]
+        [Route("")]
+        [SwaggerResponse(HttpStatusCode.Created, Description = "Creates a new employee.")]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.Conflict)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> AddEmployee([FromBody] UpdateEmployeeRequest createRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var location = string.Format("/api/employees/{0}", 0);
+            return Created(location, 0);
         }
 
         [HttpPut]
