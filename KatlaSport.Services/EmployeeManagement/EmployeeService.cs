@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using KatlaSport.DataAccess;
 using KatlaSport.DataAccess.EmployeeCatalogue;
+using DbEmployee = KatlaSport.DataAccess.EmployeeCatalogue.StoreEmployee;
 
 namespace KatlaSport.Services.EmployeeManagement
 {
@@ -50,6 +51,25 @@ namespace KatlaSport.Services.EmployeeManagement
             }
 
             return Mapper.Map<StoreEmployee, Employee>(dbEmployees[0]);
+        }
+
+        /// <inheritdoc/>
+        public async Task<Employee> CreateEmployeeAsync(UpdateEmployeeRequest createRequest)
+        {
+            var dbEmployees = await _context.Employees.Where(e => e.Email == createRequest.Email).ToArrayAsync();
+            if (dbEmployees.Length > 0)
+            {
+                throw new RequestedResourceHasConflictException("email");
+            }
+
+            var dbEmployee = Mapper.Map<UpdateEmployeeRequest, DbEmployee>(createRequest);
+            dbEmployee.CreatedBy = _userContext.UserId;
+            dbEmployee.LastUpdatedBy = _userContext.UserId;
+            _context.Employees.Add(dbEmployee);
+            _context.Employees.Add(dbEmployee);
+
+            await _context.SaveChangesAsync();
+            return Mapper.Map<Employee>(dbEmployee);
         }
 
         /// <inheritdoc/>

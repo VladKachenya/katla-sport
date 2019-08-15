@@ -80,8 +80,10 @@ namespace KatlaSport.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var location = string.Format("/api/employees/{0}", 0);
-            return Created(location, 0);
+
+            var employee = await _employeeService.CreateEmployeeAsync(createRequest);
+            var location = string.Format("/api/employees/{0}", employee.Id);
+            return Created(location, employee);
         }
 
         [HttpPut]

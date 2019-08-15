@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using DataAccessEmployee = KatlaSport.DataAccess.EmployeeCatalogue.StoreEmployee;
 
 namespace KatlaSport.Services.EmployeeManagement
@@ -11,8 +12,11 @@ namespace KatlaSport.Services.EmployeeManagement
                 .ForMember(r => r.Position, opt => opt.MapFrom(p => p.EmployeePosition.Name));
             CreateMap<DataAccessEmployee, Employee>()
                 .ForMember(r => r.Position, opt => opt.MapFrom(p => p.EmployeePosition.Name))
-                .ForMember(r => r.WorkPlaceAddress,
-                    opt => opt.MapFrom(p => $"{p.EmployeePlace.City}, {p.EmployeePlace.Street}, {p.EmployeePlace.HouseNumber}"));
+                .ForMember(r => r.WorkPlaceAddress, opt =>
+                    opt.MapFrom(p => $"{p.EmployeePlace.City}, {p.EmployeePlace.Street}, {p.EmployeePlace.HouseNumber}"));
+
+            CreateMap<UpdateEmployeeRequest, DataAccessEmployee>()
+                .ForMember(r => r.LastUpdated, opt => opt.MapFrom(p => DateTime.UtcNow));
         }
     }
 }

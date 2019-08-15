@@ -33,6 +33,13 @@ namespace KatlaSport.Services.EmployeeManagement
         Task<Employee> GetEmployeeAsync(int employeeId);
 
         /// <summary>
+        /// Creates a new employee async.
+        /// </summary>
+        /// <param name="createRequest">A <see cref="UpdateEmployeeRequest"/>.</param>
+        /// <returns>A <see cref="Task{Employee}"/>.</returns>
+        Task<Employee> CreateEmployeeAsync(UpdateEmployeeRequest createRequest);
+
+        /// <summary>
         /// Sets deleted status for a hive async.
         /// </summary>
         /// <param name="employeeId">A hive identifier.</param>
